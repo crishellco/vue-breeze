@@ -1,1 +1,1 @@
-export * as default from './Badge.vue'
+export * as default from './Badge.vue';

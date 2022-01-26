@@ -1,2 +1,2 @@
-import './assets/tailwind.css'
-export * from './components'
+import './assets/tailwind.css';
+export * from './components';

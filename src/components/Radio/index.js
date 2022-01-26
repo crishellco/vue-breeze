@@ -1,1 +1,1 @@
-export * as default from './Radio.vue'
+export * as default from './Radio.vue';

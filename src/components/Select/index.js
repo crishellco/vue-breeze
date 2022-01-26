@@ -1,1 +1,1 @@
-export * as default from './Select.vue'
+export * as default from './Select.vue';

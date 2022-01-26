@@ -1,17 +1,17 @@
 {
   "name": "@crishellco/vue-breeze",
   "version": "0.0.0-semantically-released",
-  "author": "Chris Mitchell (@crishellco)",
-  "description": "A Vue 2 Tailwind UI Component Library",
   "private": true,
+  "description": "A Vue 2 Tailwind UI Component Library",
+  "author": "Chris Mitchell (@crishellco)",
   "scripts": {
     "build": "vue-cli-service build --target lib src/main.js",
-    "test": "npm-run-all --print-label --parallel lint:* --parallel test:*",
-    "test:unit": "echo noop",
-    "lint:js": "vue-cli-service lint src",
+    "test:unit": "vue-cli-service test:unit --passWithNoTests",
+    "build-storybook": "build-storybook",
+    "lint:js": "vue-cli-service lint src ",
     "lint:js:fix": "yarn lint --fix",
     "storybook": "start-storybook -p 6006",
-    "build-storybook": "build-storybook"
+    "test": "npm-run-all --print-label --parallel lint:* --parallel test:*"
   },
   "main": "./dist/vue-breeze.umd.js",
   "files": [
@@ -29,6 +29,8 @@
   },
   "devDependencies": {
     "@babel/core": "^7.16.12",
+    "@commitlint/cli": "16.1.0",
+    "@form8ion/commitlint-config": "1.0.28",
     "@storybook/addon-actions": "^6.4.14",
     "@storybook/addon-essentials": "^6.4.14",
     "@storybook/addon-links": "^6.4.14",
@@ -37,33 +39,25 @@
     "@storybook/vue": "^6.4.14",
     "@vue/cli-plugin-babel": "~4.5.0",
     "@vue/cli-plugin-eslint": "~4.5.0",
+    "@vue/cli-plugin-unit-jest": "~4.5.0",
     "@vue/cli-service": "~4.5.0",
+    "@vue/eslint-config-prettier": "6.0.0",
+    "@vue/test-utils": "^1.0.3",
     "babel-eslint": "^10.1.0",
     "babel-loader": "^8.2.3",
-    "eslint": "^6.7.2",
-    "eslint-plugin-vue": "^6.2.2",
+    "eslint": "7.32.0",
+    "eslint-plugin-jest": "26.0.0",
+    "eslint-plugin-jest-formatting": "3.1.0",
+    "eslint-plugin-prettier": "4.0.0",
+    "eslint-plugin-vue": "8.3.0",
+    "husky": "7.0.4",
+    "js-beautify": "1.14.0",
+    "lint-staged": "12.3.1",
     "npm-run-all": "^4.1.5",
+    "prettier": "2.5.1",
+    "semantic-release": "19.0.2",
     "vue-cli-plugin-tailwind": "~2.2.18",
     "vue-loader": "^15.9.8",
     "vue-template-compiler": "^2.6.11"
-  },
-  "eslintConfig": {
-    "root": true,
-    "env": {
-      "node": true
-    },
-    "extends": [
-      "plugin:vue/essential",
-      "eslint:recommended"
-    ],
-    "parserOptions": {
-      "parser": "babel-eslint"
-    },
-    "rules": {}
-  },
-  "browserslist": [
-    "> 1%",
-    "last 2 versions",
-    "not dead"
-  ]
+  }
 }

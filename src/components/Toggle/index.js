@@ -1,1 +1,1 @@
-export * as default from './Toggle.vue'
+export * as default from './Toggle.vue';

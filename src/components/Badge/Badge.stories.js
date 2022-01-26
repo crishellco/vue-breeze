@@ -1,6 +1,6 @@
 // Badge.stories.js
 
-import VbBadge from './Badge.vue'
+import VbBadge from './Badge.vue';
 
 export default {
   /* 👇 The title prop is optional.
@@ -8,13 +8,13 @@ export default {
    * to learn how to generate automatic titles
    */
   title: 'Badge',
-  component: VbBadge
-}
+  component: VbBadge,
+};
 
 export const Default = () => ({
   components: { VbBadge },
   data() {
-    return {}
+    return {};
   },
   template: `
   <div class="space-x-4">
@@ -27,5 +27,5 @@ export const Default = () => ({
     <vb-badge color="purple">Badge</vb-badge>
     <vb-badge color="pink">Badge</vb-badge>
   </div>
-  `
-})
+  `,
+});

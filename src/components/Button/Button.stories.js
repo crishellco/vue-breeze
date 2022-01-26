@@ -1,6 +1,6 @@
 // Button.stories.js
 
-import VbButton from './Button.vue'
+import VbButton from './Button.vue';
 
 export default {
   /* 👇 The title prop is optional.
@@ -8,13 +8,13 @@ export default {
    * to learn how to generate automatic titles
    */
   title: 'Button',
-  component: VbButton
-}
+  component: VbButton,
+};
 
 export const Primary = () => ({
   components: { VbButton },
   data() {
-    return {}
+    return {};
   },
   template: `
   <div class="space-x-4">
@@ -24,13 +24,13 @@ export const Primary = () => ({
     <vb-button size="lg">Click me</vb-button>
     <vb-button size="xl">Click me</vb-button>
   </div>
-  `
-})
+  `,
+});
 
 export const Secondary = () => ({
   components: { VbButton },
   data() {
-    return {}
+    return {};
   },
   template: `
   <div class="space-x-4">
@@ -40,13 +40,13 @@ export const Secondary = () => ({
     <vb-button color="secondary" size="lg">Click me</vb-button>
     <vb-button color="secondary" size="xl">Click me</vb-button>
   </div>
-  `
-})
+  `,
+});
 
 export const White = () => ({
   components: { VbButton },
   data() {
-    return {}
+    return {};
   },
   template: `
   <div class="space-x-4">
@@ -56,5 +56,5 @@ export const White = () => ({
     <vb-button color="white" size="lg">Click me</vb-button>
     <vb-button color="white" size="xl">Click me</vb-button>
   </div>
-  `
-})
+  `,
+});

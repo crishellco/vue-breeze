@@ -18,21 +18,11 @@
 
 <script>
 export default {
-  data() {
-    return {}
-  },
-
   props: {
     value: {
       type: Boolean,
-      default: false
-    }
+      default: false,
+    },
   },
-
-  mounted() {},
-
-  methods: {},
-
-  computed: {}
-}
+};
 </script>

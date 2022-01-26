@@ -1,8 +1,5 @@
 <template>
-  <span
-    class="inline-flex items-center px-2.5 py-0.5 rounded-full text-xs font-medium "
-    :class="[colorClasses]"
-  >
+  <span class="inline-flex items-center px-2.5 py-0.5 rounded-full text-xs font-medium" :class="[colorClasses]">
     <slot />
   </span>
 </template>
@@ -16,40 +13,22 @@ const COLOR_CLASS_MAP = {
   blue: 'bg-blue-100 text-blue-800',
   indigo: 'bg-indigo-100 text-indigo-800',
   purple: 'bg-purple-100 text-purple-800',
-  pink: 'bg-pink-100 text-pink-800'
-}
+  pink: 'bg-pink-100 text-pink-800',
+};
 
 export default {
-  data() {
-    return {}
-  },
-
   props: {
     color: {
       type: String,
       default: 'indigo',
-      validator: (value) =>
-        [
-          'gray',
-          'red',
-          'yellow',
-          'green',
-          'blue',
-          'indigo',
-          'purple',
-          'pink'
-        ].includes(value)
-    }
+      validator: value => ['gray', 'red', 'yellow', 'green', 'blue', 'indigo', 'purple', 'pink'].includes(value),
+    },
   },
-
-  mounted() {},
-
-  methods: {},
 
   computed: {
     colorClasses() {
-      return COLOR_CLASS_MAP[this.color]
-    }
-  }
-}
+      return COLOR_CLASS_MAP[this.color];
+    },
+  },
+};
 </script>

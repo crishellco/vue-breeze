@@ -1,6 +1,6 @@
 // Toggle.stories.js
 
-import VbToggle from './Toggle.vue'
+import VbToggle from './Toggle.vue';
 
 export default {
   /* 👇 The title prop is optional.
@@ -8,16 +8,13 @@ export default {
    * to learn how to generate automatic titles
    */
   title: 'Toggle',
-  component: VbToggle
-}
+  component: VbToggle,
+};
 
 export const Default = () => ({
   components: { VbToggle },
   data() {
-    return {
-      value: false
-    }
+    return { value: false };
   },
-  template:
-    '<div><vb-toggle v-model="value"/><p class="mt-2 text-xs text-gray-500">Value: {{ value }}</p></div>'
-})
+  template: '<div><vb-toggle v-model="value"/><p class="mt-2 text-xs text-gray-500">Value: {{ value }}</p></div>',
+});

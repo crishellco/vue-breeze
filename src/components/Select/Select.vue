@@ -1,12 +1,8 @@
 <template>
   <div>
-    <div class="flex justify-between mb-1" v-if="label || cornerHint">
-      <label for="email" class="block text-sm font-medium text-gray-700">{{
-        label
-      }}</label>
-      <span class="text-sm text-gray-500" id="email-optional">{{
-        cornerHint
-      }}</span>
+    <div v-if="label || cornerHint" class="flex justify-between mb-1">
+      <label for="email" class="block text-sm font-medium text-gray-700">{{ label }}</label>
+      <span id="email-optional" class="text-sm text-gray-500">{{ cornerHint }}</span>
     </div>
     <div class="relative">
       <button
@@ -15,7 +11,7 @@
         :class="[
           invalid
             ? 'border-red-300 text-red-900 placeholder-red-300 focus:outline-none focus:ring-red-500 focus:border-red-500'
-            : 'border-gray-300 focus:ring-indigo-500 focus:border-indigo-500'
+            : 'border-gray-300 focus:ring-indigo-500 focus:border-indigo-500',
         ]"
         aria-haspopup="listbox"
         aria-expanded="true"
@@ -25,9 +21,7 @@
         <span class="block truncate">
           {{ selected.name || '&nbsp;' }}
         </span>
-        <span
-          class="absolute inset-y-0 right-0 flex items-center pr-2 pointer-events-none"
-        >
+        <span class="absolute inset-y-0 right-0 flex items-center pr-2 pointer-events-none">
           <svg
             class="h-5 w-5 text-gray-400"
             xmlns="http://www.w3.org/2000/svg"
@@ -49,35 +43,33 @@
         leave-to-class="opacity-0"
       >
         <ul
+          v-if="show"
+          v-click-outside="() => (show = false)"
           class="absolute z-10 mt-1 w-full bg-white shadow-lg max-h-60 rounded-md py-1 text-base ring-1 ring-black ring-opacity-5 overflow-auto focus:outline-none sm:text-sm"
           tabindex="-1"
           role="listbox"
           aria-labelledby="listbox-label"
           aria-activedescendant="listbox-option-3"
-          v-if="show"
           @click="show = false"
-          v-click-outside="() => (show = false)"
         >
           <li
             v-for="option in options"
+            id="listbox-option-0"
             :key="option.id"
             class="text-gray-900 cursor-default select-none relative py-2 pl-3 pr-9 group hover:bg-indigo-600 hover:text-white"
-            id="listbox-option-0"
             role="option"
             @click="select(option)"
           >
             <span
               class="font-normal block truncate"
-              :class="[
-                selected.id === option.id ? 'font-semibold' : 'font-normal'
-              ]"
+              :class="[selected.id === option.id ? 'font-semibold' : 'font-normal']"
             >
               {{ option.name }}
             </span>
 
             <span
-              class="text-indigo-600 absolute inset-y-0 right-0 flex items-center pr-4 group-hover:text-white"
               v-if="selected.id === option.id"
+              class="text-indigo-600 absolute inset-y-0 right-0 flex items-center pr-4 group-hover:text-white"
             >
               <svg
                 class="h-5 w-5"
@@ -97,71 +89,66 @@
         </ul>
       </transition>
     </div>
-    <p
-      class="mt-2 text-sm"
-      :class="[invalid ? 'text-red-600' : 'text-gray-500']"
-      v-if="hint"
-    >
+    <p v-if="hint" class="mt-2 text-sm" :class="[invalid ? 'text-red-600' : 'text-gray-500']">
       {{ hint }}
     </p>
   </div>
 </template>
 
 <script>
-import vClickOutside from 'v-click-outside'
+import vClickOutside from 'v-click-outside';
 
 export default {
-  data() {
-    return {
-      show: false
-    }
-  },
-
-  directives: {
-    clickOutside: vClickOutside.directive
-  },
+  directives: { clickOutside: vClickOutside.directive },
 
   props: {
     cornerHint: {
       type: String,
-      default: ''
+      default: '',
     },
+
     hint: {
       type: String,
-      default: ''
+      default: '',
     },
+
     invalid: {
       type: Boolean,
-      default: false
+      default: false,
     },
+
     label: {
       type: String,
-      default: ''
+      default: '',
     },
+
     options: {
       type: Array,
       default() {
-        return []
-      }
+        return [];
+      },
     },
+
     value: {
       type: [String, Number],
-      default: ''
-    }
+      default: '',
+    },
   },
 
-  mounted() {},
-
-  methods: {
-    select({ id }) {
-      this.$emit('input', id)
-    }
+  data() {
+    return { show: false };
   },
 
   computed: {
     selected() {
-      return this.options.find(({ id }) => id === this.value) ?? {}
-    }
-  }
-}
+      return this.options.find(({ id }) => id === this.value) ?? {};
+    },
+  },
+
+  methods: {
+    select({ id }) {
+      this.$emit('input', id);
+    },
+  },
+};
 </script>

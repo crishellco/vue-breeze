@@ -1,1 +1,1 @@
-export * as default from './Pagination.vue'
+export * as default from './Pagination.vue';

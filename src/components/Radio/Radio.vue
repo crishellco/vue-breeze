@@ -8,7 +8,7 @@
     />
     <div class="ml-3 text-sm">
       <label for="small" class="font-medium text-gray-700">{{ label }}</label>
-      <span class="text-gray-500" v-if="description">{{ description }}</span>
+      <span v-if="description" class="text-gray-500">{{ description }}</span>
     </div>
   </div>
 </template>
@@ -18,44 +18,40 @@ export default {
   model: {
     event: 'change',
 
-    prop: 'picked'
-  },
-
-  data() {
-    return {}
+    prop: 'picked',
   },
 
   props: {
     description: {
       type: String,
-      default: ''
+      default: '',
     },
+
     invalid: {
       type: Boolean,
-      default: false
+      default: false,
     },
+
     label: {
       type: String,
-      required: true
+      required: true,
     },
+
     value: {
       type: String,
-      required: true
+      required: true,
     },
+
     picked: {
       type: String,
-      default: ''
-    }
+      default: '',
+    },
   },
-
-  mounted() {},
-
-  methods: {},
 
   computed: {
     checked() {
-      return this.picked === this.value
-    }
-  }
-}
+      return this.picked === this.value;
+    },
+  },
+};
 </script>

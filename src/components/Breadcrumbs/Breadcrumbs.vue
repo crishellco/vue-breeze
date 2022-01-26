@@ -8,31 +8,19 @@
 
 <script>
 export default {
-  data() {
-    return {}
-  },
-
-  props: {},
-
-  mounted() {},
-
-  methods: {},
-
-  computed: {},
-
   components: {
     Breadcrumbs: {
       functional: true,
       render(h, { parent }) {
-        const nodes = (parent.$slots.default || []).filter(({ tag }) => !!tag)
+        const nodes = (parent.$slots.default || []).filter(({ tag }) => !!tag);
 
         return nodes.map((node, index) => {
-          node.componentOptions.propsData.first = index === 0
+          node.componentOptions.propsData.first = index === 0;
 
-          return node
-        })
-      }
-    }
-  }
-}
+          return node;
+        });
+      },
+    },
+  },
+};
 </script>

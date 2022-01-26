@@ -1,7 +1,7 @@
 // Breadcrumbs.stories.js
 
-import VbBreadcrumb from './Breadcrumb.vue'
-import VbBreadcrumbs from './Breadcrumbs.vue'
+import VbBreadcrumb from './Breadcrumb.vue';
+import VbBreadcrumbs from './Breadcrumbs.vue';
 
 export default {
   /* 👇 The title prop is optional.
@@ -9,13 +9,13 @@ export default {
    * to learn how to generate automatic titles
    */
   title: 'Breadcrumbs',
-  component: VbBreadcrumbs
-}
+  component: VbBreadcrumbs,
+};
 
 export const Default = () => ({
   components: { VbBreadcrumb, VbBreadcrumbs },
   data() {
-    return {}
+    return {};
   },
   template: `
   <div >
@@ -35,5 +35,5 @@ export const Default = () => ({
       </vb-breadcrumb>
     </vb-breadcrumbs>
   </div>
-  `
-})
+  `,
+});

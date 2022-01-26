@@ -1,11 +1,11 @@
-export { default as VbBadge } from './Badge'
-export { VbBreadcrumb } from './Breadcrumbs'
-export { VbBreadcrumbs } from './Breadcrumbs'
-export { default as VbButton } from './Button'
-export { default as VbCheckbox } from './Checkbox'
-export { default as VbInput } from './Input'
-export { default as VbPagination } from './Pagination'
-export { default as VbRadio } from './Radio'
-export { default as VbSelect } from './Select'
-export { default as VbTextarea } from './Textarea'
-export { default as VbToggle } from './Toggle'
+export { default as VbBadge } from './Badge';
+export { VbBreadcrumb } from './Breadcrumbs';
+export { VbBreadcrumbs } from './Breadcrumbs';
+export { default as VbButton } from './Button';
+export { default as VbCheckbox } from './Checkbox';
+export { default as VbInput } from './Input';
+export { default as VbPagination } from './Pagination';
+export { default as VbRadio } from './Radio';
+export { default as VbSelect } from './Select';
+export { default as VbTextarea } from './Textarea';
+export { default as VbToggle } from './Toggle';
