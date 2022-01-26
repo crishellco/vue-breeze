@@ -1,6 +1,6 @@
 // Select.stories.js
 
-import CrSelect from './Select.vue'
+import VbSelect from './Select.vue'
 
 export default {
   /* 👇 The title prop is optional.
@@ -8,7 +8,7 @@ export default {
    * to learn how to generate automatic titles
    */
   title: 'Select',
-  component: CrSelect
+  component: VbSelect
 }
 
 const options = [
@@ -25,7 +25,7 @@ const options = [
 ]
 
 export const WithLabel = () => ({
-  components: { CrSelect },
+  components: { VbSelect },
   data() {
     return {
       options,
@@ -33,11 +33,11 @@ export const WithLabel = () => ({
     }
   },
   template:
-    '<div><cr-select label="With Label" v-model="value" :options="options"/><p class="mt-2 text-xs text-gray-500">Value: {{ value }}</p></div>'
+    '<div><vb-select label="With Label" v-model="value" :options="options"/><p class="mt-2 text-xs text-gray-500">Value: {{ value }}</p></div>'
 })
 
 export const WithoutLabel = () => ({
-  components: { CrSelect },
+  components: { VbSelect },
   data() {
     return {
       options,
@@ -45,11 +45,11 @@ export const WithoutLabel = () => ({
     }
   },
   template:
-    '<div><cr-select v-model="value" :options="options"/><p class="mt-2 text-xs text-gray-500">Value: {{ value }}</p></div>'
+    '<div><vb-select v-model="value" :options="options"/><p class="mt-2 text-xs text-gray-500">Value: {{ value }}</p></div>'
 })
 
 export const Invalid = () => ({
-  components: { CrSelect },
+  components: { VbSelect },
   data() {
     return {
       options,
@@ -57,11 +57,11 @@ export const Invalid = () => ({
     }
   },
   template:
-    '<div><cr-select label="Invalid" :invalid="true" v-model="value" :options="options"/><p class="mt-2 text-xs text-gray-500">Value: {{ value }}</p></div>'
+    '<div><vb-select label="Invalid" :invalid="true" v-model="value" :options="options"/><p class="mt-2 text-xs text-gray-500">Value: {{ value }}</p></div>'
 })
 
 export const WithHint = () => ({
-  components: { CrSelect },
+  components: { VbSelect },
   data() {
     return {
       options,
@@ -69,11 +69,11 @@ export const WithHint = () => ({
     }
   },
   template:
-    '<div><cr-select label="With Hint" hint="This is a hint" v-model="value" :options="options"/><p class="mt-2 text-xs text-gray-500">Value: {{ value }}</p></div>'
+    '<div><vb-select label="With Hint" hint="This is a hint" v-model="value" :options="options"/><p class="mt-2 text-xs text-gray-500">Value: {{ value }}</p></div>'
 })
 
 export const WithCornerHint = () => ({
-  components: { CrSelect },
+  components: { VbSelect },
   data() {
     return {
       options,
@@ -81,11 +81,11 @@ export const WithCornerHint = () => ({
     }
   },
   template:
-    '<div><cr-select label="With Corner Hint" corner-hint="Optional" v-model="value" :options="options"/><p class="mt-2 text-xs text-gray-500">Value: {{ value }}</p></div>'
+    '<div><vb-select label="With Corner Hint" corner-hint="Optional" v-model="value" :options="options"/><p class="mt-2 text-xs text-gray-500">Value: {{ value }}</p></div>'
 })
 
 export const WithInvalidHint = () => ({
-  components: { CrSelect },
+  components: { VbSelect },
   data() {
     return {
       options,
@@ -93,5 +93,5 @@ export const WithInvalidHint = () => ({
     }
   },
   template:
-    '<div><cr-select label="With Invalid Hint" hint="This value fails validation!" :invalid="true" v-model="value" :options="options"/><p class="mt-2 text-xs text-gray-500">Value: {{ value }}</p></div>'
+    '<div><vb-select label="With Invalid Hint" hint="This value fails validation!" :invalid="true" v-model="value" :options="options"/><p class="mt-2 text-xs text-gray-500">Value: {{ value }}</p></div>'
 })

@@ -1,6 +1,6 @@
 // Badge.stories.js
 
-import CrBadge from './Badge.vue'
+import VbBadge from './Badge.vue'
 
 export default {
   /* 👇 The title prop is optional.
@@ -8,24 +8,24 @@ export default {
    * to learn how to generate automatic titles
    */
   title: 'Badge',
-  component: CrBadge
+  component: VbBadge
 }
 
 export const Default = () => ({
-  components: { CrBadge },
+  components: { VbBadge },
   data() {
     return {}
   },
   template: `
   <div class="space-x-4">
-    <cr-badge color="gray">Badge</cr-badge>
-    <cr-badge color="red">Badge</cr-badge>
-    <cr-badge color="yellow">Badge</cr-badge>
-    <cr-badge color="green">Badge</cr-badge>
-    <cr-badge color="blue">Badge</cr-badge>
-    <cr-badge color="indigo">Badge</cr-badge>
-    <cr-badge color="purple">Badge</cr-badge>
-    <cr-badge color="pink">Badge</cr-badge>
+    <vb-badge color="gray">Badge</vb-badge>
+    <vb-badge color="red">Badge</vb-badge>
+    <vb-badge color="yellow">Badge</vb-badge>
+    <vb-badge color="green">Badge</vb-badge>
+    <vb-badge color="blue">Badge</vb-badge>
+    <vb-badge color="indigo">Badge</vb-badge>
+    <vb-badge color="purple">Badge</vb-badge>
+    <vb-badge color="pink">Badge</vb-badge>
   </div>
   `
 })

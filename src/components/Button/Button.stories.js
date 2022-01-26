@@ -1,6 +1,6 @@
 // Button.stories.js
 
-import CrButton from './Button.vue'
+import VbButton from './Button.vue'
 
 export default {
   /* 👇 The title prop is optional.
@@ -8,53 +8,53 @@ export default {
    * to learn how to generate automatic titles
    */
   title: 'Button',
-  component: CrButton
+  component: VbButton
 }
 
 export const Primary = () => ({
-  components: { CrButton },
+  components: { VbButton },
   data() {
     return {}
   },
   template: `
   <div class="space-x-4">
-    <cr-button size="xs">Click me</cr-button>
-    <cr-button size="sm">Click me</cr-button>
-    <cr-button>Click me</cr-button>
-    <cr-button size="lg">Click me</cr-button>
-    <cr-button size="xl">Click me</cr-button>
+    <vb-button size="xs">Click me</vb-button>
+    <vb-button size="sm">Click me</vb-button>
+    <vb-button>Click me</vb-button>
+    <vb-button size="lg">Click me</vb-button>
+    <vb-button size="xl">Click me</vb-button>
   </div>
   `
 })
 
 export const Secondary = () => ({
-  components: { CrButton },
+  components: { VbButton },
   data() {
     return {}
   },
   template: `
   <div class="space-x-4">
-    <cr-button color="secondary" size="xs">Click me</cr-button>
-    <cr-button color="secondary" size="sm">Click me</cr-button>
-    <cr-button color="secondary">Click me</cr-button>
-    <cr-button color="secondary" size="lg">Click me</cr-button>
-    <cr-button color="secondary" size="xl">Click me</cr-button>
+    <vb-button color="secondary" size="xs">Click me</vb-button>
+    <vb-button color="secondary" size="sm">Click me</vb-button>
+    <vb-button color="secondary">Click me</vb-button>
+    <vb-button color="secondary" size="lg">Click me</vb-button>
+    <vb-button color="secondary" size="xl">Click me</vb-button>
   </div>
   `
 })
 
 export const White = () => ({
-  components: { CrButton },
+  components: { VbButton },
   data() {
     return {}
   },
   template: `
   <div class="space-x-4">
-    <cr-button color="white" size="xs">Click me</cr-button>
-    <cr-button color="white" size="sm">Click me</cr-button>
-    <cr-button color="white">Click me</cr-button>
-    <cr-button color="white" size="lg">Click me</cr-button>
-    <cr-button color="white" size="xl">Click me</cr-button>
+    <vb-button color="white" size="xs">Click me</vb-button>
+    <vb-button color="white" size="sm">Click me</vb-button>
+    <vb-button color="white">Click me</vb-button>
+    <vb-button color="white" size="lg">Click me</vb-button>
+    <vb-button color="white" size="xl">Click me</vb-button>
   </div>
   `
 })

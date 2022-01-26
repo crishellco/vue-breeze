@@ -1,6 +1,6 @@
 // Pagination.stories.js
 
-import CrPagination from './Pagination.vue'
+import VbPagination from './Pagination.vue'
 
 export default {
   /* 👇 The title prop is optional.
@@ -8,11 +8,11 @@ export default {
    * to learn how to generate automatic titles
    */
   title: 'Pagination',
-  component: CrPagination
+  component: VbPagination
 }
 
 export const Default = () => ({
-  components: { CrPagination },
+  components: { VbPagination },
   data() {
     return {
       results: 150,
@@ -20,5 +20,5 @@ export const Default = () => ({
     }
   },
   template:
-    '<div><cr-pagination :results="results" v-model="value"/><p class="mt-2 text-xs text-gray-500">Value: {{ value }}</p></div>'
+    '<div><vb-pagination :results="results" v-model="value"/><p class="mt-2 text-xs text-gray-500">Value: {{ value }}</p></div>'
 })

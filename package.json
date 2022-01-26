@@ -1,14 +1,19 @@
 {
-  "name": "tailwind-ui-vue2",
-  "version": "0.1.0",
+  "name": "@crishellco/vue-breeze",
+  "version": "0.0.0-semantically-released",
+  "author": "Chris Mitchell (@crishellco)",
+  "description": "A Vue 2 Tailwind UI Component Library",
   "private": true,
   "scripts": {
     "build": "vue-cli-service build --target lib src/main.js",
-    "lint": "vue-cli-service lint",
+    "test": "npm-run-all --print-label --parallel lint:* --parallel test:*",
+    "test:unit": "echo noop",
+    "lint:js": "vue-cli-service lint src",
+    "lint:js:fix": "yarn lint --fix",
     "storybook": "start-storybook -p 6006",
     "build-storybook": "build-storybook"
   },
-  "main": "./dist/tailwind-ui-vue2.umd.js",
+  "main": "./dist/vue-breeze.umd.js",
   "files": [
     "dist/*"
   ],
@@ -37,6 +42,7 @@
     "babel-loader": "^8.2.3",
     "eslint": "^6.7.2",
     "eslint-plugin-vue": "^6.2.2",
+    "npm-run-all": "^4.1.5",
     "vue-cli-plugin-tailwind": "~2.2.18",
     "vue-loader": "^15.9.8",
     "vue-template-compiler": "^2.6.11"
