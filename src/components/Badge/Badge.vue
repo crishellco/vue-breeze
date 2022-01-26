@@ -21,7 +21,7 @@ export default {
     color: {
       type: String,
       default: 'indigo',
-      validator: value => ['gray', 'red', 'yellow', 'green', 'blue', 'indigo', 'purple', 'pink'].includes(value),
+      validator: (value) => ['gray', 'red', 'yellow', 'green', 'blue', 'indigo', 'purple', 'pink'].includes(value),
     },
   },
 

@@ -4,19 +4,29 @@
   "private": true,
   "description": "A Vue 2 Tailwind UI Component Library",
   "author": "Chris Mitchell (@crishellco)",
+  "main": "./dist/vue-breeze.umd.js",
+  "files": [
+    "dist/*"
+  ],
   "scripts": {
     "build": "vue-cli-service build --target lib src/main.js",
     "test:unit": "vue-cli-service test:unit --passWithNoTests",
     "build-storybook": "build-storybook",
     "lint:js": "vue-cli-service lint src ",
     "lint:js:fix": "yarn lint --fix",
+    "lint:md": "remark . --frail",
+    "release": "semantic-release",
     "storybook": "start-storybook -p 6006",
     "test": "npm-run-all --print-label --parallel lint:* --parallel test:*"
   },
-  "main": "./dist/vue-breeze.umd.js",
-  "files": [
-    "dist/*"
-  ],
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/crishellco/vue-breeze.git"
+  },
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/crishellco/vue-breeze/issues"
+  },
   "dependencies": {
     "@tailwindcss/forms": "^0.4.0",
     "@tailwindcss/postcss7-compat": "^2.2.17",
