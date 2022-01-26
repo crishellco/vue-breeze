@@ -1,6 +1,6 @@
 // Select.stories.js
 
-import Select from './Select.vue'
+import CrSelect from './Select.vue'
 
 export default {
   /* 👇 The title prop is optional.
@@ -8,10 +8,90 @@ export default {
    * to learn how to generate automatic titles
    */
   title: 'Select',
-  component: Select
+  component: CrSelect
 }
 
-export const Primary = () => ({
-  components: { Select },
-  template: '<Select  />'
+const options = [
+  { id: 1, name: 'Wade Cooper' },
+  { id: 2, name: 'Arlene Mccoy' },
+  { id: 3, name: 'Devon Webb' },
+  { id: 4, name: 'Tom Cook' },
+  { id: 5, name: 'Tanya Fox' },
+  { id: 6, name: 'Hellen Schmidt' },
+  { id: 7, name: 'Caroline Schultz' },
+  { id: 8, name: 'Mason Heaney' },
+  { id: 9, name: 'Claudie Smitham' },
+  { id: 10, name: 'Emil Schaefer' }
+]
+
+export const WithLabel = () => ({
+  components: { CrSelect },
+  data() {
+    return {
+      options,
+      value: 1
+    }
+  },
+  template:
+    '<div><cr-select label="With Label" v-model="value" :options="options"/><p class="mt-2 text-xs text-gray-500">Value: {{ value }}</p></div>'
+})
+
+export const WithoutLabel = () => ({
+  components: { CrSelect },
+  data() {
+    return {
+      options,
+      value: 1
+    }
+  },
+  template:
+    '<div><cr-select v-model="value" :options="options"/><p class="mt-2 text-xs text-gray-500">Value: {{ value }}</p></div>'
+})
+
+export const Invalid = () => ({
+  components: { CrSelect },
+  data() {
+    return {
+      options,
+      value: 1
+    }
+  },
+  template:
+    '<div><cr-select label="Invalid" :invalid="true" v-model="value" :options="options"/><p class="mt-2 text-xs text-gray-500">Value: {{ value }}</p></div>'
+})
+
+export const WithHint = () => ({
+  components: { CrSelect },
+  data() {
+    return {
+      options,
+      value: 1
+    }
+  },
+  template:
+    '<div><cr-select label="With Hint" hint="This is a hint" v-model="value" :options="options"/><p class="mt-2 text-xs text-gray-500">Value: {{ value }}</p></div>'
+})
+
+export const WithCornerHint = () => ({
+  components: { CrSelect },
+  data() {
+    return {
+      options,
+      value: 1
+    }
+  },
+  template:
+    '<div><cr-select label="With Corner Hint" corner-hint="Optional" v-model="value" :options="options"/><p class="mt-2 text-xs text-gray-500">Value: {{ value }}</p></div>'
+})
+
+export const WithInvalidHint = () => ({
+  components: { CrSelect },
+  data() {
+    return {
+      options,
+      value: 1
+    }
+  },
+  template:
+    '<div><cr-select label="With Invalid Hint" hint="This value fails validation!" :invalid="true" v-model="value" :options="options"/><p class="mt-2 text-xs text-gray-500">Value: {{ value }}</p></div>'
 })

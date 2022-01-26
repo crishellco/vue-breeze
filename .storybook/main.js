@@ -10,7 +10,8 @@ module.exports = {
           implementation: require('postcss')
         }
       }
-    }
+    },
+    '@storybook/addon-storysource'
   ],
   framework: '@storybook/vue'
 }

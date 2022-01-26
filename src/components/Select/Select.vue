@@ -1,25 +1,33 @@
 <template>
-  <!-- This example requires Tailwind CSS v2.0+ -->
   <div>
-    <label id="listbox-label" class="block text-sm font-medium text-gray-700">
-      Assigned to
-    </label>
-    <div class="mt-1 relative">
+    <div class="flex justify-between mb-1" v-if="label || cornerHint">
+      <label for="email" class="block text-sm font-medium text-gray-700">{{
+        label
+      }}</label>
+      <span class="text-sm text-gray-500" id="email-optional">{{
+        cornerHint
+      }}</span>
+    </div>
+    <div class="relative">
       <button
         type="button"
-        class="bg-white relative w-full border border-gray-300 rounded-md shadow-sm pl-3 pr-10 py-2 text-left cursor-default focus:outline-none focus:ring-1 focus:ring-indigo-500 focus:border-indigo-500 sm:text-sm"
+        class="bg-white relative w-full border rounded-md shadow-sm pl-3 pr-10 py-2 text-left cursor-default focus:outline-none focus:ring-1 sm:text-sm"
+        :class="[
+          invalid
+            ? 'border-red-300 text-red-900 placeholder-red-300 focus:outline-none focus:ring-red-500 focus:border-red-500'
+            : 'border-gray-300 focus:ring-indigo-500 focus:border-indigo-500'
+        ]"
         aria-haspopup="listbox"
         aria-expanded="true"
         aria-labelledby="listbox-label"
-        @click="show = !show"
+        @click="show = true"
       >
         <span class="block truncate">
-          Tom Cook
+          {{ selected.name || '&nbsp;' }}
         </span>
         <span
           class="absolute inset-y-0 right-0 flex items-center pr-2 pointer-events-none"
         >
-          <!-- Heroicon name: solid/selector -->
           <svg
             class="h-5 w-5 text-gray-400"
             xmlns="http://www.w3.org/2000/svg"
@@ -35,73 +43,73 @@
           </svg>
         </span>
       </button>
-
-      <!--
-      Select popover, show/hide based on select state.
-
-      Entering: ""
-        From: ""
-        To: ""
-      Leaving: "transition ease-in duration-100"
-        From: "opacity-100"
-        To: "opacity-0"
-    -->
-      <ul
-        class="absolute z-10 mt-1 w-full bg-white shadow-lg max-h-60 rounded-md py-1 text-base ring-1 ring-black ring-opacity-5 overflow-auto focus:outline-none sm:text-sm"
-        tabindex="-1"
-        role="listbox"
-        aria-labelledby="listbox-label"
-        aria-activedescendant="listbox-option-3"
-        v-if="show"
-        @click="show = false"
+      <transition
+        leave-active-class="transition ease-in duration-100"
+        leave-from-class="opacity-100"
+        leave-to-class="opacity-0"
       >
-        <!--
-        Select option, manage highlight styles based on mouseenter/mouseleave and keyboard navigation.
-
-        Highlighted: "text-white bg-indigo-600", Not Highlighted: "text-gray-900"
-      -->
-        <li
-          class="text-gray-900 cursor-default select-none relative py-2 pl-3 pr-9"
-          id="listbox-option-0"
-          role="option"
+        <ul
+          class="absolute z-10 mt-1 w-full bg-white shadow-lg max-h-60 rounded-md py-1 text-base ring-1 ring-black ring-opacity-5 overflow-auto focus:outline-none sm:text-sm"
+          tabindex="-1"
+          role="listbox"
+          aria-labelledby="listbox-label"
+          aria-activedescendant="listbox-option-3"
+          v-if="show"
+          @click="show = false"
+          v-click-outside="() => (show = false)"
         >
-          <!-- Selected: "font-semibold", Not Selected: "font-normal" -->
-          <span class="font-normal block truncate">
-            Wade Cooper
-          </span>
-
-          <!--
-          Checkmark, only display for selected option.
-
-          Highlighted: "text-white", Not Highlighted: "text-indigo-600"
-        -->
-          <span
-            class="text-indigo-600 absolute inset-y-0 right-0 flex items-center pr-4"
+          <li
+            v-for="option in options"
+            :key="option.id"
+            class="text-gray-900 cursor-default select-none relative py-2 pl-3 pr-9 group hover:bg-indigo-600 hover:text-white"
+            id="listbox-option-0"
+            role="option"
+            @click="select(option)"
           >
-            <!-- Heroicon name: solid/check -->
-            <svg
-              class="h-5 w-5"
-              xmlns="http://www.w3.org/2000/svg"
-              viewBox="0 0 20 20"
-              fill="currentColor"
-              aria-hidden="true"
+            <span
+              class="font-normal block truncate"
+              :class="[
+                selected.id === option.id ? 'font-semibold' : 'font-normal'
+              ]"
             >
-              <path
-                fill-rule="evenodd"
-                d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z"
-                clip-rule="evenodd"
-              />
-            </svg>
-          </span>
-        </li>
+              {{ option.name }}
+            </span>
 
-        <!-- More items... -->
-      </ul>
+            <span
+              class="text-indigo-600 absolute inset-y-0 right-0 flex items-center pr-4 group-hover:text-white"
+              v-if="selected.id === option.id"
+            >
+              <svg
+                class="h-5 w-5"
+                xmlns="http://www.w3.org/2000/svg"
+                viewBox="0 0 20 20"
+                fill="currentColor"
+                aria-hidden="true"
+              >
+                <path
+                  fill-rule="evenodd"
+                  d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z"
+                  clip-rule="evenodd"
+                />
+              </svg>
+            </span>
+          </li>
+        </ul>
+      </transition>
     </div>
+    <p
+      class="mt-2 text-sm"
+      :class="[invalid ? 'text-red-600' : 'text-gray-500']"
+      v-if="hint"
+    >
+      {{ hint }}
+    </p>
   </div>
 </template>
 
 <script>
+import vClickOutside from 'v-click-outside'
+
 export default {
   data() {
     return {
@@ -109,8 +117,51 @@ export default {
     }
   },
 
+  directives: {
+    clickOutside: vClickOutside.directive
+  },
+
+  props: {
+    cornerHint: {
+      type: String,
+      default: ''
+    },
+    hint: {
+      type: String,
+      default: ''
+    },
+    invalid: {
+      type: Boolean,
+      default: false
+    },
+    label: {
+      type: String,
+      default: ''
+    },
+    options: {
+      type: Array,
+      default() {
+        return []
+      }
+    },
+    value: {
+      type: [String, Number],
+      default: ''
+    }
+  },
+
   mounted() {},
 
-  methods: {}
+  methods: {
+    select({ id }) {
+      this.$emit('input', id)
+    }
+  },
+
+  computed: {
+    selected() {
+      return this.options.find(({ id }) => id === this.value) ?? {}
+    }
+  }
 }
 </script>
