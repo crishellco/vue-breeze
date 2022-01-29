@@ -7,5 +7,7 @@ export { default as VbInput } from './Input';
 export { default as VbPagination } from './Pagination';
 export { default as VbRadio } from './Radio';
 export { default as VbSelect } from './Select';
+export { VbTab } from './Tabs';
+export { VbTabs } from './Tabs';
 export { default as VbTextarea } from './Textarea';
 export { default as VbToggle } from './Toggle';
