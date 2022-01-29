@@ -8,7 +8,6 @@
         preserveAspectRatio="none"
         fill="currentColor"
         xmlns="http://www.w3.org/2000/svg"
-        aria-hidden="true"
       >
         <path d="M.293 0l22 22-22 22h1.414l22-22-22-22H.293z" />
       </svg>

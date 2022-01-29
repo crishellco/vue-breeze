@@ -13,7 +13,7 @@
     "test:unit": "vue-cli-service test:unit --passWithNoTests",
     "build-storybook": "build-storybook",
     "lint:js": "vue-cli-service lint src ",
-    "lint:js:fix": "yarn lint --fix",
+    "lint:js:fix": "yarn lint:js --fix",
     "lint:md": "remark . --frail",
     "release": "semantic-release",
     "storybook": "start-storybook -p 6006",
