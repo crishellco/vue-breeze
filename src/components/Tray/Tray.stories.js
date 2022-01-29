@@ -19,7 +19,7 @@ export const Right = () => ({
   watch: {
     open(val) {
       if (!val) {
-        setTimeout(() => (this.open = true), 500);
+        setTimeout(() => (this.open = true), 1000);
       }
     },
   },
@@ -34,7 +34,7 @@ export const Left = () => ({
   watch: {
     open(val) {
       if (!val) {
-        setTimeout(() => (this.open = true), 500);
+        setTimeout(() => (this.open = true), 1000);
       }
     },
   },
