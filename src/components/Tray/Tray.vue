@@ -2,7 +2,7 @@
   <div class="fixed inset-0 overflow-hidden">
     <div class="absolute inset-0 overflow-hidden">
       <div class="absolute inset-0">
-        <div class="fixed inset-y-0 right-0 pl-10 max-w-full flex">
+        <div class="fixed inset-y-0 max-w-full flex" :class="[side === 'right' ? 'right-0 pl-10 ' : 'left-0 pr-10 ']">
           <div v-show="open" class="w-screen max-w-md">
             <div class="h-full flex flex-col py-6 bg-white shadow-xl overflow-y-auto">
               <div class="px-4">
@@ -50,6 +50,11 @@ export default {
     open: {
       type: Boolean,
       default: true,
+    },
+    side: {
+      type: String,
+      default: 'right',
+      validator: (value) => ['left', 'right'].includes(value),
     },
     title: {
       type: String,

@@ -11,7 +11,7 @@ export default {
   component: VbTray,
 };
 
-export const Default = () => ({
+export const Right = () => ({
   components: { VbTray },
   data() {
     return { open: true };
@@ -19,9 +19,25 @@ export const Default = () => ({
   watch: {
     open(val) {
       if (!val) {
-        setTimeout(() => (this.open = true), 2000);
+        setTimeout(() => (this.open = true), 500);
       }
     },
   },
   template: '<div><vb-tray @close="open = false" :open="open" title="Tray Title">Content here...</vb-tray></div>',
+});
+
+export const Left = () => ({
+  components: { VbTray },
+  data() {
+    return { open: true };
+  },
+  watch: {
+    open(val) {
+      if (!val) {
+        setTimeout(() => (this.open = true), 500);
+      }
+    },
+  },
+  template:
+    '<div><vb-tray @close="open = false" side="left" :open="open" title="Tray Title">Content here...</vb-tray></div>',
 });
