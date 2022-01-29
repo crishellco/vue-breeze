@@ -3,7 +3,7 @@
     <div class="absolute inset-0 overflow-hidden">
       <div class="absolute inset-0">
         <div class="fixed inset-y-0 max-w-full flex" :class="[side === 'right' ? 'right-0 pl-10 ' : 'left-0 pr-10 ']">
-          <transition name="slide">
+          <transition :name="`slide-${side}`">
             <div v-if="open" class="w-screen max-w-md">
               <div class="h-full flex flex-col py-6 bg-white shadow-xl overflow-y-auto">
                 <div class="px-4">
@@ -67,14 +67,25 @@ export default {
 </script>
 
 <style scoped>
-.slide-enter-active,
-.slide-leave-active {
+.slide-right-enter-active,
+.slide-right-leave-active {
   transition: transform 200ms ease-in-out;
 }
 
-.slide-enter,
-.slide-leave-to {
+.slide-right-enter,
+.slide-right-leave-to {
   transform: translateX(100%);
+  transition: all 200ms ease-in-out 0s;
+}
+
+.slide-left-enter-active,
+.slide-left-leave-active {
+  transition: transform 200ms ease-in-out;
+}
+
+.slide-left-enter,
+.slide-left-leave-to {
+  transform: translateX(-100%);
   transition: all 200ms ease-in-out 0s;
 }
 </style>
