@@ -1,8 +1,8 @@
 <template>
   <div>
     <div v-if="label || cornerHint" class="flex justify-between mb-1">
-      <label for="email" class="block text-sm font-medium text-gray-700">{{ label }}</label>
-      <span id="email-optional" class="text-sm text-gray-500">{{ cornerHint }}</span>
+      <label class="block text-sm font-medium text-gray-700">{{ label }}</label>
+      <span class="text-sm text-gray-500">{{ cornerHint }}</span>
     </div>
     <div class="relative">
       <button
@@ -43,7 +43,6 @@
         >
           <li
             v-for="option in options"
-            id="listbox-option-0"
             :key="option.id"
             class="text-gray-900 cursor-default select-none relative py-2 pl-3 pr-9 group hover:bg-indigo-600 hover:text-white"
             role="option"

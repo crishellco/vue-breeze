@@ -7,7 +7,7 @@
       :checked="checked"
     />
     <div class="ml-3 text-sm">
-      <label for="small" class="font-medium text-gray-700">{{ label }}</label>
+      <label class="font-medium text-gray-700">{{ label }}</label>
       <span v-if="description" class="text-gray-500">{{ description }}</span>
     </div>
   </div>

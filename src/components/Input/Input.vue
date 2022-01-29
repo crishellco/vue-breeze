@@ -1,8 +1,8 @@
 <template>
   <div>
     <div v-if="label || cornerHint" class="flex justify-between mb-1">
-      <label for="email" class="block text-sm font-medium text-gray-700">{{ label }}</label>
-      <span id="email-optional" class="text-sm text-gray-500">{{ cornerHint }}</span>
+      <label class="block text-sm font-medium text-gray-700">{{ label }}</label>
+      <span class="text-sm text-gray-500">{{ cornerHint }}</span>
     </div>
     <div class="mt-1 flex rounded-md shadow-sm">
       <span
@@ -12,8 +12,6 @@
         http://
       </span>
       <input
-        id="email"
-        name="email"
         class="shadow-sm block w-full text-sm rounded-r-md"
         :class="[
           { 'rounded-l-md': !prefix },
@@ -21,7 +19,6 @@
             ? 'border-red-300 text-red-900 placeholder-red-300 focus:outline-none focus:ring-red-500 focus:border-red-500'
             : 'border-gray-300 focus:ring-indigo-500 focus:border-indigo-500',
         ]"
-        placeholder="you@example.com"
         v-bind="$attrs"
         :value="value"
         @input="$emit('input', $event.target.value)"

@@ -1,8 +1,8 @@
 <template>
   <div>
     <div v-if="label || cornerHint" class="flex justify-between mb-1">
-      <label for="email" class="block text-sm font-medium text-gray-700">{{ label }}</label>
-      <span id="email-optional" class="text-sm text-gray-500">{{ cornerHint }}</span>
+      <label class="block text-sm font-medium text-gray-700">{{ label }}</label>
+      <span class="text-sm text-gray-500">{{ cornerHint }}</span>
     </div>
     <div>
       <textarea

@@ -11,3 +11,4 @@ export { VbTab } from './Tabs';
 export { VbTabs } from './Tabs';
 export { default as VbTextarea } from './Textarea';
 export { default as VbToggle } from './Toggle';
+export { default as VbTray } from './Tray';
