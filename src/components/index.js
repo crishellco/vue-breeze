@@ -2,6 +2,7 @@ export { default as VbBadge } from './Badge';
 export { VbBreadcrumb } from './Breadcrumbs';
 export { VbBreadcrumbs } from './Breadcrumbs';
 export { default as VbButton } from './Button';
+export { default as VbCard } from './Card';
 export { default as VbCheckbox } from './Checkbox';
 export { default as VbInput } from './Input';
 export { default as VbPagination } from './Pagination';
